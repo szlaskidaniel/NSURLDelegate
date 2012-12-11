@@ -1,0 +1,23 @@
+
+
+[mainscroll setScrollEnabled:NO];
+
+
+Make a CGFloat lastOffset as a member variable in your class.h file..
+
+then set it 0 in viewDidLoad .
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+
+    {
+    if (scrollView.contentOffset.x < lastOffset) // has scrolled left..
+    {
+         lastOffset = scrollView.contentOffset.x;
+        [self NextQuestion:scrollView];
+    }
+
+}
+
+-(void)scrollRectToVisible:(CGRect)rect animated:(BOOL)animated {
+}
+
